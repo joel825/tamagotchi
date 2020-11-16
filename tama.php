@@ -68,7 +68,7 @@
  
     function menjar1()
     {
-        echo "caramelo" . "\n";
+        echo "caramel" . "\n";
     }
     function menjar2()
     {
