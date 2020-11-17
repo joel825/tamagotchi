@@ -1,11 +1,15 @@
 <?php 
+
+/* c:\xampp/php/php.exe C:\Users\Labhdeep\Desktop\tamagotchi\main.php */
  class tama {
     public $gana;
     public $felicitat;
     public $edat = 0;
-    public $pes;
+    public $pes = 0;
     public $disciplina;
     public $estat;
+    public $lavabo = 0;
+    public $mort = false;
     
     //GETERS & SETERS
 
@@ -23,7 +27,7 @@
        return $this->felicitat = $newFelicitat;
     }
 
-    function getEPes(){
+    function getPes(){
     return $this->pes;
     }
     function setPes($newPes){
@@ -51,6 +55,22 @@
        return $this->estat = $newEstat;
     }
 
+    function getLavabo(){
+        return $this->lavabo;
+    }
+    function setLavabo($newLavabo){
+       return $this->lavabo = $newLavabo;
+    }
+
+    function getMort(){
+        return $this->mort;
+    }
+    function setMort($newMort){
+       return $this->mort = $newMort;
+    }
+
+
+
     //METHODS
 
     function jugar()
@@ -68,7 +88,61 @@
  
     function menjar1()
     {
-        echo "caramel" . "\n";
+        if($this->mort == false){
+            if (rand(0,1)){
+                 echo " \n\n\n Gelat" . "\n
+                              _.-.
+                            ,'/ //\
+                           /// // /)
+                          /// // //|
+                         /// // ///
+                        /// // ///
+                       (`: // ///
+                        `;`: ///
+                        / /:`:/
+                       / /  `'
+                     / /
+                    (_/      
+                            \n";
+
+                $feli = $this->getFelicitat();
+                $this->setFelicitat($feli+1);
+                
+                $pesActual = $this->getPes();
+                $this->setPes($pesActual+0.6);
+
+                $lav = $this->getLavabo();
+                $this->setLavabo($lav+0.8);
+
+
+
+                echo "\n Felicitat:  " ;
+                echo $this->getFelicitat();
+        
+                echo "\n Pes:        " ;
+                echo $this->getPes();
+
+                echo "\n Ganes de anar al Lavabo: " ;
+                echo $this->getLavabo();
+                
+            }else{
+                echo "\n\n\n No vol menjar" . "\n
+                 _   _                    _                           _            
+                | \ | |                  | |                         (_)           
+                |  \| | ___   __   _____ | |     _ __ ___   ___ _ __  _  __ _ _ __ 
+                | . ` |/ _ \  \ \ / / _ \| |    | '_ ` _ \ / _ \ '_ \| |/ _` | '__|
+                | |\  | (_) |  \ V / (_) | |    | | | | | |  __/ | | | | (_| | |   
+                \_| \_/\___/    \_/ \___/|_|    |_| |_| |_|\___|_| |_| |\__,_|_|   
+                                                                    _/ |           
+                                                                   |__/           
+                ";
+            }
+
+
+            if($this->getLavabo() >= 10){
+                $this->death();
+            }
+        }
     }
     function menjar2()
     {
@@ -77,6 +151,29 @@
     function dormir()
     {
         echo "dormir" . "\n";    
+    }
+
+
+    function death(){
+
+        echo "
+        HA MENJAT MASSSA!!!!! \n\n
+            _.-^^---....,,--       
+        _--                  --_  
+       <                        >)
+       |                         | 
+        \._                   _./  
+           ```--. . , ; .--'''       
+                 | |   |             
+              .-=||  | |=-.   
+              `-=#$%&%$#=-'   
+                 | ;  :|     
+        _____.,-#%&$@%#&#~,._____
+        ";
+
+        $this->setMort(true);
+
+        exit;
     }
 
    }
