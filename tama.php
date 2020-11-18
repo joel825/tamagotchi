@@ -90,7 +90,7 @@
     {
         if($this->mort == false){
             if (rand(0,1)){
-                 echo " \n\n\n Gelat" . "\n
+                echo " \n\n\n Gelat" . "\n
                               _.-.
                             ,'/ //\
                            /// // /)
@@ -101,8 +101,8 @@
                         `;`: ///
                         / /:`:/
                        / /  `'
-                     / /
-                    (_/      
+                      / /
+                     (_/      
                             \n";
 
                 $feli = $this->getFelicitat();
