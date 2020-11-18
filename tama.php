@@ -2,7 +2,7 @@
 
 /* c:\xampp/php/php.exe C:\Users\Labhdeep\Desktop\tamagotchi\main.php */
  class tama {
-    public $gana;
+    public $gana = True;
     public $felicitat;
     public $edat = 0;
     public $pes = 0;
@@ -88,8 +88,9 @@
  
     function menjar1()
     {
+
         if($this->mort == false){
-            if (rand(0,1)){
+            if ($this->getGana()){
                 echo " \n\n\n Gelat" . "\n
                               _.-.
                             ,'/ //\
@@ -114,6 +115,8 @@
                 $lav = $this->getLavabo();
                 $this->setLavabo($lav+0.8);
 
+                $this->setGana(False);
+
 
 
                 echo "\n Felicitat:  " ;
@@ -121,6 +124,9 @@
         
                 echo "\n Pes:        " ;
                 echo $this->getPes();
+
+                echo "\n Edat: " ;
+                echo $this->edat;
 
                 echo "\n Ganes de anar al Lavabo: " ;
                 echo $this->getLavabo();
@@ -136,6 +142,18 @@
                                                                     _/ |           
                                                                    |__/           
                 ";
+
+                echo "\n Felicitat:  " ;
+                echo $this->getFelicitat();
+        
+                echo "\n Pes:        " ;
+                echo $this->getPes();
+
+                echo "\n Edat: " ;
+                echo $this->edat;
+
+                echo "\n Ganes de anar al Lavabo: " ;
+                echo $this->getLavabo();
             }
 
 
@@ -174,6 +192,17 @@
         $this->setMort(true);
 
         exit;
+    }
+
+    function calcularEdat($cont){
+        switch($cont){
+            case $cont < 3:
+                echo "\n\n\n OU";
+            break;
+            case $cont > 3 and $cont < 5:
+                echo "\n\n\n Nado";
+            break;
+        }
     }
 
    }
