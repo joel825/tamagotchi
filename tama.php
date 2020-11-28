@@ -20,6 +20,7 @@
        return $this->gana = $newGana;
     }
 
+    
     function getFelicitat(){
         return $this->felicitat;
     }
